@@ -1,11 +1,16 @@
 Note: Idk if you guys like logic programming (where you only have to program a little but think of the logic), or "project" programming (where you make something cool, but takes a bit of code). Here is something I whipped up last night, its more on the "project" side, if you want more logic programming tell me...also if you don't get anything in the background section....don't be afraid to dm me or ask in the #aotd channel
 
 POTD: (ill give more than a day)
-Challenge Name: Poly wants a Trig
-Challenge Description: You are going to make a program that fits a polynomial function into a trig function using taylor series (dw if you don't know what that means..ill explain soon). This is NOT AI, honestly I don't know a thing about AI, but I watched this one 3b1b video on taylor series and I found this really really cool.
+Challenge Name:
+---------------------
+Poly wants a Trig
+
+Challenge Description: 
+---------------------
+You are going to make a program that fits a polynomial function into a trig function using taylor series (dw if you don't know what that means..ill explain soon). This is NOT AI, honestly I don't know a thing about AI, but I watched this one 3b1b video on taylor series and I found this really really cool.
 
 Background:
-
+---------------------
 Question 1: What do you mean by fitting?
 
 Say I have the function y = cos(x), when I graph it I get a curvy looking graph. Trig is hard to work with, but polynomials are not. When we fit a function, we try to get an equation to look really really similar to another function. In this case y=1-(x^2/2)+(x^4/24)-(x^6/720) is a good fit for y=cos(x).
@@ -87,17 +92,25 @@ Now we know all the coefficients A=0, B=-1/6, C=0, D=1, E=0. Plugging it into ou
 y=(-1/6)\*x^3 + x
 
 And we just fit a 4 (technically 3) degree polynomial for sin(x)
+
+Challenge: 
 ---------------------
-Challenge: Make a program that asks for 3 things...A,B, and d. Spit out the fitted polynomial with Degree (d) for the function y=A\*sin(B\*x) (you could also ask if you want the function to be sin or cosine). So it could be y=A\*cos(B\*x) if you want. 
+Make a program that asks for 3 things...A,B, and d. Spit out the fitted polynomial with Degree (d) for the function y=A\*sin(B\*x) (you could also ask if you want the function to be sin or cosine). So it could be y=A\*cos(B\*x) if you want. 
+
+Extra Challenge: 
 ---------------------
-Extra Challenge: Instead of inputting A,B,and d...make the program parse a give string of a polynomial. 
+Instead of inputting A,B,and d...make the program parse a give string of a polynomial. 
 So I enter: 4\*sin(4\*x) 
 And it gives the result out
+
+Extra Extra Challenge: 
 ---------------------
-Extra Extra Challenge: Have the string parser, be able to work for other functions than strictly trig functions. So like
+Have the string parser, be able to work for other functions than strictly trig functions. So like
 y=sin(4\*x)+x^3
+
+Resources:
 ---------------------
-Resources (If you got confused in the background section read/watch this articles/videos)
+(If you got confused in the background section read/watch this articles/videos)
 
 Power rule: https://www.youtube.com/watch?v=TgIl15Nlg_U
 Derivative of Sine and Cosine: https://www.youtube.com/watch?v=QYJx-ztCrE4
