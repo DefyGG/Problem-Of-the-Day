@@ -1,8 +1,6 @@
 Give me a equation for each of these recursive problem (with proof):
 
-* Ez pz lemon squeesy:
-
-f(x):
+* Ez pz lemon squeesy: f(x):
 if (x <= 0) return 1
 else return f(x-2)+2;
 
