@@ -1,0 +1,3 @@
+Solution: (x+1)(|cos(x * pi/2)|) + (x+2)(|sin(x * pi/2)|) 
+
+Reasoning: "I thought it should bounce between 2 values, and then you have the sine and cosine functions that are always 0, 1, or -1. at intervals of pi/2. I can eliminate -1 with an absolute value, so only 0 and 1, and then I split it up into two sequences, one with all the odd numbers, one with all the even numbers. Even numbers follow the cosine function since even intervals of pi/2 will start at 0 and then be one, and odd numbers follow the sine function since odd intervals of pi/2 will start at 1and then be zero. Multiplying by the number plus one gives you each sequence individually, but because the sine function is every odd, add an extra. Then put them together"
