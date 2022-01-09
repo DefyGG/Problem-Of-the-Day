@@ -1,11 +1,15 @@
+from typing import Union
+
 import math
 import sympy as sp
+from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application, \
+    convert_xor, rationalize
 
 
-def get_taylor(is_sine: bool, a: int, b: int, degree: int, point: int) -> str:
+def get_taylor(func, degree: int, point: int) -> str:
     final = 0
     x = sp.Symbol('x')
-    func = a * sp.sin(b * x) if is_sine else a * sp.cos(b * x)
+
     for i in range(degree + 1):
         final += func.subs({x: point}) * (x - point) ** i / math.factorial(i)
         func = sp.diff(func)
@@ -13,22 +17,31 @@ def get_taylor(is_sine: bool, a: int, b: int, degree: int, point: int) -> str:
     return str(final).replace("**", "^")
 
 
-def main() -> None:
-    print("a*sin(b*x) // a*cos(b*x):")
-    a = int(input("\ta = "))
-    b = int(input("\tb = "))
-    degree = int(input("\tWhat degree of polynomial would you like to use? - "))
-    point = int(input("\tAround what x-value are you trying to fit the polynomial? - "))
-    curve = input("\tAre you attempting to fit a sine or cosine curve? - ")
-    if curve in ("cos", "cosine", "c"):
-        is_sine = False
-    elif curve in ("sin", "sine", "s"):
-        is_sine = True
-    else:
-        print("\nInvalid Input! Fitting Sine Curve")
-        is_sine = True
+def get_input(prompt: str, is_func: bool) -> Union[sp.core.mul.Mul, int]:
+    print(prompt)
 
-    print(get_taylor(is_sine, a, b, degree, point))
+    while True:
+        try:
+            if is_func:
+                output = parse_expr(input("\t"),
+                                    transformations=standard_transformations + (implicit_multiplication_application,
+                                                                                convert_xor, rationalize))
+                sp.diff(output)  # Ensures valid input
+            else:
+                output = int(input("\t"))
+        except (ValueError, TypeError):
+            print(f"That is not a valid {'function' if is_func else 'integer'}!  Please try again!")
+            continue
+        else:
+            return output
+
+
+def main() -> None:
+    func = get_input("What function would you like to fit? (In terms of x)", True)
+    degree = get_input("What degree of polynomial would you like?", False)
+    point = get_input("Around which x-value would you like to fit the polynomial?", False)
+
+    print(f"Fitted Polynomial:\n\t{get_taylor(func, degree, point)}")
 
 
 if __name__ == '__main__':
